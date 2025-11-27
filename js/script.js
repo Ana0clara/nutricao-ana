@@ -30,6 +30,14 @@ for(var contador = 0; contador <= 4; contador ++) {
     
   }
 
+function calculaImc() {
+  var imc = 0;
+
+  img = peso / (altura * altura);
+
+  return imc.toFixed(2);
+}
+
 //var nome = document.getElementById('nome');
 //nome.textContent = "joana";
 
