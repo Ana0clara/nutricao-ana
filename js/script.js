@@ -20,15 +20,26 @@ for(var contador = 0; contador <= 4; contador ++) {
   var pesoEhvalido = true;
   var alturaEhvalida = true;
 
-  if(peso < 0 ) {
+  if(peso < 0 || peso > 600 ) {
     tdPeso.textContent = "Peso invalido";
+    pesoEhvalido = false;
+    pacientes[contador].classList.add("dados-invalidos");
   }
 
-  if(altura < 0){
+  if(altura < 0 || altura > 2.80){
     tdAltura.textContent = "altura invalida";
+    alturaEhvalida = false;
+    pacientes[contador].classList.add("dados-invalidos");
+    
+  }
+
+  if(pesoEhvalido && alturaEhvalida) {
+    var imc = calculaImc(peso, altura);
+    tdImc.textContent = imc;
   }
     
   }
+
 
 function calculaImc() {
   var imc = 0;
@@ -37,25 +48,3 @@ function calculaImc() {
 
   return imc.toFixed(2);
 }
-
-//var nome = document.getElementById('nome');
-//nome.textContent = "joana";
-
-//var celulaPeso = document.getElementById('peso');
-//var peso = celulaPeso.textContent;
-
-//var celulaAltura = document.getElementById('altura');
-//var altura = celulaAltura.textContent;
-
-//var celulaGordura = document.getElementById('gordura');
-//var gordura = celulaGordura.textContent;
-
-//if (peso < 0) {
-//  celulaPeso.textContent = "peso invalido";}
-
-//if (altura < 0){
- // celulaAltura.textContent = "altura invalida";}
-
-//if (gordura < 0){
- // celulaGordura.textContent = "gordura invalida";}
-
